@@ -1,0 +1,45 @@
+.main__notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 5px;
+}
+
+.main__note__card {
+  min-height: 200px;
+  background-color: var(--color-primary);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 1rem;
+}
+
+.main__note__card textarea {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 5px 10px;
+}
+
+.main__note__card input {
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px;
+  outline: none;
+}
+
+.main__note__card.add {
+  background-color: aquamarine;
+}
+
+.card__header {
+ text-overflow: clip;
+}
+
+.card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
