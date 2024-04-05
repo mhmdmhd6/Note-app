@@ -1,5 +1,13 @@
-import { useEffect, useState } from "react";
-import "./Main.css";
+import { useState } from "react";
+import {
+  NotesContainer,
+  NoteCard,
+  AddNoteCard,
+  CardInput,
+  CardDescription,
+  CardHeader,
+  CardFooter,
+} from "./Main.styles.jsx";
 
 export default function Main() {
   const [note, setNote] = useState({ title: "", description: "" });
@@ -19,41 +27,41 @@ export default function Main() {
 
   return (
     <main className="main">
-      <div className="main__notes">
+      <NotesContainer>
         {allNotes.map(({ title, description }) => {
           return (
-            <div className="main__note__card">
-              <div className="card__header">
+            <NoteCard>
+              <CardHeader>
                 <h1 className="title">{title}</h1>
                 <p className="text">{description}</p>
-              </div>
-              <div className="card__footer">
+              </CardHeader>
+              <CardFooter>
                 <small>10/20/2003</small>
                 <button>delete</button>
-              </div>
-            </div>
+              </CardFooter>
+            </NoteCard>
           );
         })}
-        <div className="main__note__card add">
-          <input
+        <AddNoteCard>
+          <CardInput
             type="text"
-            placeholder="title"
+            placeholder="Type a Title..."
             onChange={(e) => handleChange(e, "title")}
             maxLength={50}
           />
-          <textarea
+          <CardDescription
             cols="20"
             rows="8"
-            placeholder="type to add a note..."
+            placeholder="Type to add a note..."
             onChange={(e) => handleChange(e, "description")}
             maxLength={200}
-          ></textarea>
-          <div className="card__footer">
+          ></CardDescription>
+          <CardFooter>
             <small>17/10/2024</small>
             <button onClick={handleClick}>save</button>
-          </div>
-        </div>
-      </div>
+          </CardFooter>
+        </AddNoteCard>
+      </NotesContainer>
     </main>
   );
 }
