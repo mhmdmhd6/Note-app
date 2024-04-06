@@ -1,8 +1,24 @@
 # Note App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My Note App is a simple note-taking app with dark mode/light mode support and basic note management features.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Dark mode and light mode options
+- Add and remove notes
+
+## Getting Started
+
+1. Clone the repository: `git clone https://github.com/your-username/mynoteapp.git`
+2. Install dependencies: `npm install`
+3. Run the app: `npm start`
+
+## Usage
+
+- Toggle between dark mode and light mode.
+- Add new notes with titles and descriptions.
+- Remove notes when no longer needed.
+
+## Contributing
+
+Contributions are welcome! Submit bug reports, feature requests, or pull requests.
