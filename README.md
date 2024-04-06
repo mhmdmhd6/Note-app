@@ -1,4 +1,4 @@
-# Note App
+# Note App 🗒️ 
 
 My Note App is a simple note-taking app with dark mode/light mode support and basic note management features.
 
