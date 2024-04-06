@@ -9,9 +9,9 @@ My Note App is a simple note-taking app with dark mode/light mode support and ba
 
 ## Getting Started
 
-1. Clone the repository: `git clone https://github.com/your-username/mynoteapp.git`
+1. Clone the repository: `git clone https://github.com/mhmdmhd6/Note-app.git`
 2. Install dependencies: `npm install`
-3. Run the app: `npm start`
+3. Run the app: `npm run dev`
 
 ## Usage
 
