@@ -9,12 +9,14 @@
 
 :root {
   --color-white: #fff;
-  --color-primary: #d99058;
-  --color-primary-300: #d9905857;
-  --color-secondary: #701c1c;
-
+  --color-black: #000;
+  
   --color-dark: #0a182e;
-  --color-dark-primary: #1c3253;
+  --color-light: #f3f3f3;
+
+  --color-primary-light: #d99058;
+  --color-primary-dark: #1c3253;
+  
 }
 
 .container {

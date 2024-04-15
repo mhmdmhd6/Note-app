@@ -28,6 +28,7 @@ export const CardInput = styled.input`
   border: none;
   padding: 5px 10px;
   outline: none;
+  color: ${(props) => props.theme.text};
 `;
 
 export const CardDescription = styled.textarea`
@@ -36,6 +37,7 @@ export const CardDescription = styled.textarea`
   outline: none;
   resize: none;
   padding: 5px 10px;
+  color: ${(props) => props.theme.text};
 `;
 
 export const CardHeader = styled.div`
@@ -46,4 +48,12 @@ export const CardFooter = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
+
+export const CardButton = styled.button`
+  padding: 0.5rem;
+  background-color: white;
+  border: none;
+  outline: none;
+  border-radius: 0.3rem;
 `;

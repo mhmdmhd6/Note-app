@@ -26,7 +26,7 @@ export const SearchInput = styled.input`
   padding: 0.7rem;
   border-radius: 0.6rem;
   border: 1px solid ${(props) => props.theme.primary};
-  color: ${(props) => props.theme.text};
+  color: var(--color-black);
   outline: none;
 `;
 

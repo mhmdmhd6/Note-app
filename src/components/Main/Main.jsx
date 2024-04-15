@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { nanoid } from "nanoid";
+import useLocalStorage from "../../hooks/useLocalStorage.jsx";
 import {
   NotesContainer,
   NoteCard,
@@ -7,28 +9,44 @@ import {
   CardDescription,
   CardHeader,
   CardFooter,
+  CardButton,
 } from "./Main.styles.jsx";
 
 export default function Main() {
-  const [note, setNote] = useState({ title: "", description: "" });
-  const [allNotes, setAllNotes] = useState([
-    { title: "note1", description: "Hello, this is a note" },
-    { title: "note2", description: "Hello, this is a note2" },
-    { title: "note3", description: "Hello this is the third note" },
-  ]);
+  const [note, setNote] = useState({
+    title: "",
+    description: "",
+  });
+  const [allNotes, setAllNotes] = useLocalStorage("Notes", []);
 
   const handleChange = (e, field) => {
-    setNote({ ...note, [field]: e.target.value });
+    setNote((prev) => {
+      return { ...prev, [field]: e.target.value };
+    });
   };
 
   const handleClick = () => {
-    setAllNotes([...allNotes, note]);
+    const newNote = { ...note, id: nanoid(), date: getDate() };
+    setAllNotes((prev) => [...prev, newNote]);
+    setNote({
+      title: "",
+      description: "",
+    });
+  };
+
+  const removeNote = (idToRemove) => {
+    setAllNotes(allNotes.filter((note) => note.id !== idToRemove));
+  };
+
+  const getDate = () => {
+    const date = new Date();
+    return date.toLocaleDateString();
   };
 
   return (
     <main className="main">
       <NotesContainer>
-        {allNotes.map(({ title, description }) => {
+        {allNotes?.map(({ title, description, id, date }) => {
           return (
             <NoteCard>
               <CardHeader>
@@ -36,8 +54,8 @@ export default function Main() {
                 <p className="text">{description}</p>
               </CardHeader>
               <CardFooter>
-                <small>10/20/2003</small>
-                <button>delete</button>
+                <small>{date}</small>
+                <CardButton onClick={() => removeNote(id)}>delete</CardButton>
               </CardFooter>
             </NoteCard>
           );
@@ -48,6 +66,7 @@ export default function Main() {
             placeholder="Type a Title..."
             onChange={(e) => handleChange(e, "title")}
             maxLength={50}
+            value={note.title}
           />
           <CardDescription
             cols="20"
@@ -55,10 +74,11 @@ export default function Main() {
             placeholder="Type to add a note..."
             onChange={(e) => handleChange(e, "description")}
             maxLength={200}
-          ></CardDescription>
+            value={note.description}
+          />
           <CardFooter>
             <small>17/10/2024</small>
-            <button onClick={handleClick}>save</button>
+            <CardButton onClick={handleClick}>save</CardButton>
           </CardFooter>
         </AddNoteCard>
       </NotesContainer>

@@ -3,7 +3,7 @@ import { HeaderWrapper, Logo, SearchContainer, SearchInput, Button } from './Hea
 export default function Header({toggleTheme, theme}) {
   return (
     <HeaderWrapper >
-      <Logo>Note app</Logo>
+      <Logo>🗒️ Notio </Logo>
       <SearchContainer>
         <SearchInput type="text" placeholder="search..." />
       </SearchContainer>
